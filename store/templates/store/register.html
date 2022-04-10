@@ -1,0 +1,60 @@
+{% extends 'main.html' %}
+
+
+{% comment %} {% block content %}
+<div>
+    <form method="POST" action="">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Register" />
+    </form>
+    <p>Already signed up yet?</p>
+    <a href="{% url 'login' %}">Login</a>
+</div>
+{% endblock content %} {% endcomment %}
+
+
+{% block content %}
+<div class="signup__container">
+    <div class="container__child signup__thumbnail">
+      <div class="thumbnail__content text-center">
+        <h1 class="heading--primary">Welcome to Store.</h1>
+        <h2 class="heading--secondary">Are you ready to join the elite?</h2>
+      </div>
+      
+      <div class="signup__overlay"></div>
+    </div>
+    <div class="container__child signup__form">
+      <form action="" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input class="form-control" type="text" name="username" id="username"   />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input class="form-control" type="text" name="email" id="email"   />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input class="form-control" type="password" name="password1" id="password"  />
+        </div>
+        <div class="form-group">
+          <label for="passwordRepeat">Repeat Password</label>
+          <input class="form-control" type="password" name="password2" id="passwordRepeat" />
+        </div>
+        <div class="m-t-lg">
+          <ul class="list-inline">
+            <li>
+              <input class="btn btn--form" type="submit" value="Register" />
+            </li>
+            <li>
+              <a class="signup__link" href="{% url 'login' %}">I am already a member</a>
+            </li>
+          </ul>
+        </div>
+      </form>  
+    </div>
+  </div>
+{% endblock content %}
+

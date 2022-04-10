@@ -1,0 +1,34 @@
+{% include 'main.html' %}
+
+<nav>
+    <h3 style='align:center; padding:10px;'>Categories</h3>
+    <hr>
+    <div align='center'>
+        <a href="{% url 'store' %}">All</a>
+    </div>
+
+    {% for category in categories %}
+     <div align = 'center'>
+        <a href="{% url 'store' %}?search={{category.slug}}">{{category.name}}</a>
+    </div>
+    {% endfor %}
+</nav>
+
+<section>
+    <div style='margin:0% 30% 0% 30%' align='center'>
+        <div class='product-wrapper'>
+        <img src="{{product.ImageURL}}" class='thumbnail'>
+  
+        <h6 style=" align: right; padding-top:10px">@{{product.seller.username}}</h6>
+        <h6 style=" padding-top:10px;align:left;" ><strong>{{product.name}}</strong></h6>
+       
+        
+        <p>{{product.description}}</p>
+        <p>${{product.price}}</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <h1>footer</h1>
+</footer>

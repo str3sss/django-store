@@ -1,0 +1,40 @@
+{% extends 'main.html' %} 
+{% load static %}
+
+{% block content %}
+
+    <nav>
+        <h3 style='align:center; padding:10px;'>Categories</h3>
+        <hr>
+        <div align='center'>
+            <a href="{% url 'store' %}">All</a>
+        </div>
+
+        {% for category in categories %}
+         <div align = 'center'>
+            <a href="{% url 'store' %}?search={{category.slug}}">{{category.name}}</a>
+        </div>
+        {% endfor %}
+    </nav>
+
+    <section>
+        <div class='products-conteiner'>
+            {% for product in products %}
+            <div class='product-wrapper'>
+                <img src="{{product.ImageURL}}" class='thumbnail'>
+                        <h6 style=" float: right; padding-top:10px">@{{product.seller.username}}</h6>
+                        <h6 style=" padding-top:10px"><strong>{{product.name}}</strong></h6>
+                        <hr>
+                        <button class='btn btn-outline-dark'>Add to cart</button>
+                        <a class="btn btn-outline-dark" href="{% url 'product' product.id %}">Info</a>
+                        <h4 style="display: inline-block; float: right"><strong>${{product.price}}</strong></h4>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <footer>
+        <h1>Footer</h1>
+    </footer>
+
+{% endblock content %}
